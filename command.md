@@ -4,6 +4,7 @@
 
 ### Folding
 
+```
 set foldmethod=indent "set default foldmethod
 "zi 打开关闭折叠
 "zv 查看此行
@@ -15,5 +16,6 @@ zc 折叠当前行
 zo 打开当前折叠
 zd 删除折叠
 zD 删除所有折叠
+```
 
-### 
+
