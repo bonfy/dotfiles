@@ -1,0 +1,97 @@
+" ==========================================
+" bundle 插件管理和配置项
+" ==========================================
+
+
+" inspired by spf13 and k-vim, 自定义需要的插件集合
+
+" ----------------------------------------------------------------------------
+" 使用 vim-plug 管理插件
+" vim plugin bundle control, command model
+" ----------------------------------------------------------------------------
+
+
+call plug#begin('~/.vim/bundle')
+
+" Plugins {
+
+    " install vim-go
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+    
+    " install Python 
+    " Pick either python-mode or pyflakes & pydoc
+    Plug 'klen/python-mode'
+    Plug 'yssource/python.vim'
+    Plug 'vim-scripts/python_match.vim'
+    Plug 'mjbrownie/pythoncomplete.vim'
+    
+    " install neocomplete
+    Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/neosnippet'
+    Plug 'Shougo/neosnippet-snippets'
+
+    " install ultisnips
+    Plug 'SirVer/ultisnips'
+
+    " install honza/vim-snippets
+    Plug 'honza/vim-snippets'
+
+    " install vim-airline
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    " install vim-fugitive
+    Plug 'tpope/vim-fugitive'
+
+    " install ctrlp
+    Plug 'kien/ctrlp.vim'
+
+" }
+
+call plug#end()
+
+" ############
+" Plugin Config
+" ############
+
+" Plugin Config {
+
+    " vim-airline
+
+    " airline {{{
+        if !exists('g:airline_symbols')
+            let g:airline_symbols = {}
+        endif
+        let g:airline_left_sep = '▶'
+        let g:airline_left_alt_sep = '❯'
+        let g:airline_right_sep = '◀'
+        let g:airline_right_alt_sep = '❮'
+        let g:airline_symbols.linenr = '¶'
+        let g:airline_symbols.branch = '⎇'
+        " 是否打开tabline
+        " let g:airline#extensions#tabline#enabled = 1
+    " }}}
+
+    " neocomplete {
+    " Disable AutoComplPop.
+    let g:acp_enableAtStartup = 0
+    " Use neocomplete.
+    let g:neocomplete#enable_at_startup = 1
+    " Use smartcase.
+    let g:neocomplete#enable_smart_case = 1
+    " Set minimum syntax keyword length.
+    let g:neocomplete#sources#syntax#min_keyword_length = 3
+    " }
+
+    " python {
+
+    " By default python-mode uses python 2 syntax checking. To enable python 3 syntax checking (e.g. for async) add:
+    let g:pymode_python = 'python3'
+    let g:pymode = 1
+    " temporary fix
+    " https://github.com/vim/vim/issues/3117
+    " if has('python3')
+    "     silent! python3 1
+    " endif
+    " }
+" }
